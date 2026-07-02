@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Luck Diary</title>
+  <meta name="theme-color" content="#34c759" />
+  <link rel="manifest" href="manifest.webmanifest" />
+  <link rel="icon" type="image/png" sizes="192x192" href="icons/icon-192.png" />
+  <link rel="apple-touch-icon" href="icons/icon-192.png" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="app">
+    <header class="top">
+      <h1> 💕TamB's Luck Diary🍀</h1>
+      <div class="streaks">
+        <span id="currentStreak">Current Streak: 0</span>
+        <span id="longestStreak">Longest Streak: 0</span>
+      </div>
+    </header>
+
+    <section class="card">
+      <div class="row">
+        <h2>Entry</h2>
+        <button id="todayBtn" class="ghost">Go to Today</button>
+      </div>
+      <p class="muted">Selected date: <strong id="selectedDateLabel"></strong></p>
+
+      <textarea
+        id="entryInput"
+        maxlength="50"
+        placeholder="Write your lucky event (max 50 chars)"
+        rows="3"
+      ></textarea>
+
+      <div class="row">
+        <span id="charCount" class="muted">0/50</span>
+        <div class="actions">
+          <button id="saveBtn">Save</button>
+          <button id="deleteBtn" class="danger">Delete</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="card">
+      <div class="calendar-header">
+        <button id="prevMonthBtn" class="ghost">◀</button>
+        <h2 id="monthLabel">Month Year</h2>
+        <button id="nextMonthBtn" class="ghost">▶</button>
+      </div>
+
+      <div class="weekday-grid">
+        <div>Sun</div><div>Mon</div><div>Tue</div><div>Wed</div>
+        <div>Thu</div><div>Fri</div><div>Sat</div>
+      </div>
+
+      <div id="calendarGrid" class="calendar-grid"></div>
+    </section>
+
+    <section class="card">
+      <h2>Backup & Restore</h2>
+      <div class="row wrap">
+        <button id="backupBtn">Backup (Export JSON)</button>
+      </div>
+
+      <div class="restore">
+        <input id="restoreFile" type="file" accept="application/json,.json" />
+        <div class="row wrap">
+          <label><input type="radio" name="restoreMode" value="merge" checked /> Merge</label>
+          <label><input type="radio" name="restoreMode" value="replace" /> Replace</label>
+          <button id="restoreBtn">Restore</button>
+        </div>
+      </div>
+      <p class="muted small">Merge keeps existing data. Replace overwrites all data.</p>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
